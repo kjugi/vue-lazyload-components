@@ -22,6 +22,16 @@ export default () => {
         },
         show: false
       }
+    },
+    mounted() {
+      this.el = this.$el
+    },
+    methods: {
+      load() {
+        this.show = true
+        this.state.loaded = true
+        this.$emit('show', true)
+      }
     }
   }
 }

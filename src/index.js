@@ -1,7 +1,7 @@
 import LazyloadMainComponent from './component'
 
 export default {
-  install(Vue, options = {}) {
+  install(Vue) {
     Vue.component('lazy-component', LazyloadMainComponent)
   }
 }
