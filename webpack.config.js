@@ -1,12 +1,19 @@
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: [
     './src/'
   ],
+  resolve: {
+    modules: ['node_modules']
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'build.js'
+    filename: 'index.js',
+    library: 'LazyloadMainComponent',
+    libraryExport: 'default',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
