@@ -6,8 +6,8 @@
     "last 2 versions",
     "IE 11"
   ],
-  "engines" : {
-    "node" : ">=12.13"
+  "engines": {
+    "node": ">=12.13"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
