@@ -1,9 +1,12 @@
-// import LazyloadMainComponent from './component'
 import Component from './component.vue'
 
 export default {
   install(Vue) {
-    // Vue.component('lazy-component', LazyloadMainComponent)
-    Vue.component('LazyComponent', Component)
+    // TODO: add support to global options in options.observerOptions
+    Vue.prototype.$LazyComponent = {
+      name: 'LazyLoadedComponents'
+    }
+
+    Vue.component(Component.name, Component)
   }
 }
