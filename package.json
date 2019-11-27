@@ -10,7 +10,7 @@
     "node": ">=12.13"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js && cp ./dist/index.js ./demo/node_modules/lazy-load-component/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.7.2",

@@ -2,9 +2,10 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <lazy-component>
+    <lazy-load-component :observer-options="testing">
       testing
-    </lazy-component>
+      <HelloWorld msg="Welcome to Your Vue.js App"/>
+    </lazy-load-component>
   </div>
 </template>
 
@@ -15,6 +16,13 @@ export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      testing: {
+        threshold: 0.5
+      }
+    }
   }
 }
 </script>

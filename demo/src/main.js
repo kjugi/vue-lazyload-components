@@ -3,6 +3,7 @@ import App from './App.vue'
 import LazyloadMainComponent from 'lazy-load-component'
 
 console.log(LazyloadMainComponent) // eslint-disable-line
+console.log(Vue.prototype) //eslint-disable-line
 
 Vue.use(LazyloadMainComponent)
 
