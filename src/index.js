@@ -1,4 +1,4 @@
-import Component from './component.vue'
+import MainComponent from './MainComponent.vue'
 
 export default {
   install(Vue) {
@@ -7,6 +7,6 @@ export default {
       name: 'LazyLoadedComponents'
     }
 
-    Vue.component(Component.name, Component)
+    Vue.component(MainComponent.name, MainComponent)
   }
 }
