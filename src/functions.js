@@ -8,12 +8,8 @@ export function intersectionObserverInit(el, options) {
     margin: '0px',
     threshold: 1.0
   }
-
-  console.log(options) //eslint-disable-line
-
-  if (options.observerOptions) {
-    sourceOfTruth = Object.assign(sourceOfTruth, options.observerOptions)
-  }
+  // Merging custom variables with default
+  sourceOfTruth = Object.assign(sourceOfTruth, options)
 
   const observer = new IntersectionObserver(entries => {
     // Allow observing only when not blocking main thread if available in browser

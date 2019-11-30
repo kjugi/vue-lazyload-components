@@ -1,7 +1,9 @@
 <template>
   <component :is="mainTag" v-if="isShowed">
     <template v-if="!isLoaded">
-
+      <span>
+        Loading...
+      </span>
     </template>
     <template v-else>
       <slot/>
@@ -40,8 +42,7 @@ export default {
     }
   },
   mounted() {
-    const customOptions = this.observerOptions ? customOptions.observerOptions = this.observerOptions : {}
-    intersectionObserverInit(this.$el, customOptions)
+    intersectionObserverInit(this.$el, this.observerOptions ? this.observerOptions : {})
   }
 }
 </script>
