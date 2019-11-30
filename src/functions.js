@@ -24,15 +24,20 @@ export function intersectionObserverInit(el, options) {
     }
   }, sourceOfTruth)
 
-  // There we have pointer to our real observable element
+  // There we have pointer to our observable element
   observer.observe(el)
 }
 
 function handleIntersection(entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log('this is showed') //eslint-disable-line
-      // logic to showed/visible component
+      console.log('this is showed', entry) //eslint-disable-line
+      // logic to showed/visible component and remove intersection
+      disableIntersection()
     }
   })
+}
+
+function disableIntersection() {
+  // Logic with deleting intersection observer when showed element
 }
