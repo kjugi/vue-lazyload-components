@@ -1,11 +1,13 @@
 # vue-lazyload-components
 
 TODO \ MVP:
-2. Zainicjalizowac Vue component i directive dla biblioteki
-3. Stworzyc bazowy komponent ktory bedzie po prostu posiadal slot
-4. Zbudowac demo z uzyciem tego liba i tego importowania modulu https://medium.com/@olivierpicault/create-a-vue-js-component-library-as-a-module-part-1-a1116e632751
-5. Dodac do komponentu intersection observer bez konfiguracji i pokazywac tylko wtedy gdy potrzeba
-6. Dodac mozliwosc konfiguracji intersection observer przez propsy do komponentu
 7. Dodac mozliwosc konfiguracji komponentu
+8. Dopisac funkcje ktore usuna intersection observer z elementu
+9. Dodac mozliwosc wylaczenia tej opcji
+10. Dodać wsprawcie dla opcji (isLoaded and isShowed), oraz dodać loader w komponencie, który będzie łatwo podmienialny
 8. Dodac unit testy
-9. Wygenerowac produkcyjny skrypt
+9. Dodać prawdziwe demo w repo
+10. Dodać developerska wersje skryptu z watchowaniem przy zmianach, nowy konfig webpackowy
+11. Posprzatac w repo i zakutalizowac sciprts w package.json
+12. Wygenerowac produkcyjny skrypt
+13. Wyniesc repo na github z jakims README.md
