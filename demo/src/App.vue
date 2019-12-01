@@ -2,7 +2,10 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <lazy-load-component>
+    <lazy-load-component :is-loaded-prop="false">
+      <template v-slot:loader>
+        blah blah loader...
+      </template>
       testing
       <HelloWorld msg="Welcome to Your Vue.js App"/>
     </lazy-load-component>

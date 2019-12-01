@@ -1,9 +1,11 @@
 <template>
   <component :is="mainTag" v-if="isShowed">
     <template v-if="!isLoaded">
-      <span>
-        Loading...
-      </span>
+      <slot name="loader">
+        <span>
+          Loading...
+        </span>
+      </slot>
     </template>
     <template v-else>
       <slot/>
