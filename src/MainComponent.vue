@@ -32,7 +32,7 @@ export default {
       type: Boolean,
       default: true
     },
-    observerOptions: {
+    options: {
       type: Object,
       default: () => {}
     }
@@ -44,7 +44,10 @@ export default {
     }
   },
   mounted() {
-    intersectionObserverInit(this.$el, this.observerOptions ? this.observerOptions : {})
+    intersectionObserverInit(
+      this.$el,
+      this.options || {}
+    )
   }
 }
 </script>
