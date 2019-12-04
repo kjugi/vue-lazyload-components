@@ -1,6 +1,6 @@
 /* globals window, IntersectionObserver */
 
-export function intersectionObserverInit(el, options) {
+export function initIntersectionObserver(el, options) {
   const optionKeys = Object.keys(options)
   let sourceOfTruth = {
     // null observes whole document's viewport

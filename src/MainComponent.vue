@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { intersectionObserverInit } from './functions.js'
+import { initIntersectionObserver } from './functions.js'
 
 // TODO: make component hidden on start (isLoaded and isShowed) b/c need to init intersectionObserver
 export default {
@@ -44,7 +44,7 @@ export default {
     }
   },
   mounted() {
-    intersectionObserverInit(
+    initIntersectionObserver(
       this.$el,
       this.options || {}
     )
