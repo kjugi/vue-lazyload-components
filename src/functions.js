@@ -27,11 +27,19 @@ export function initIntersectionObserver(el, options) {
     // https://caniuse.com/#search=requestIdleCallback
     if (window && window.requestIdleCallback) {
       window.requestIdleCallback(() => {
-        handleIntersection(entries, isIntersectionsDisabled)
+        handleIntersection(
+          entries,
+          (isIntersectionsDisabled) ? el : false,
+          observer
+        )
       })
     }
     else {
-      handleIntersection(entries, isIntersectionsDisabled)
+      handleIntersection(
+        entries,
+        (isIntersectionsDisabled) ? el : false,
+        observer
+      )
     }
   }, sourceOfTruth)
 
@@ -39,19 +47,14 @@ export function initIntersectionObserver(el, options) {
   observer.observe(el)
 }
 
-function handleIntersection(entries, isIntersectionsDisabled) {
+function handleIntersection(entries, element, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       console.log('this is showed', entry) //eslint-disable-line
-      // logic to showed/visible component and remove intersection
-      if (isIntersectionsDisabled) {
-        disableIntersection()
+
+      if (element) {
+        observer.unobserve(element)
       }
     }
   })
-}
-
-function disableIntersection() {
-  console.log('disablingIntersections') // eslint-disable-line
-  // Logic with deleting intersection observer when showed element
 }
