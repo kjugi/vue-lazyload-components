@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <lazy-load-component :options="options">
+    <lazy-load-component :options="options" :is-loaded-prop="false">
       <template v-slot:loader>
         blah blah loader...
       </template>
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       options: {
-        disableIntersection: false,
+        disableIntersection: true,
         intersectionOptions: {
           threshold: 0.5
         }

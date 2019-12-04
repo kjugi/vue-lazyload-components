@@ -1,9 +1,8 @@
 # vue-lazyload-components
 
 TODO \ MVP:
-8. Dopisac funkcje ktore usuna intersection observer z elementu
 9. Dodać wsparcie dla długich komponentów i (?) niepoprawnych object.keys dla intersections (?)
-10. Dodać wsprawcie dla opcji (isLoaded and isShowed)
+10. Dodać wsprawcie dla opcji (isLoaded)
 8. Dodac unit testy
 9. Dodać prawdziwe demo w repo
 10. Dodać developerska wersje skryptu z watchowaniem przy zmianach, nowy konfig webpackowy
