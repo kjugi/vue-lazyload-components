@@ -1,5 +1,5 @@
 <template>
-  <component :is="mainTag" v-if="isShowed">
+  <component :is="mainTag">
     <template v-if="!isLoaded">
       <slot name="loader">
         <span>
@@ -28,10 +28,6 @@ export default {
       type: Boolean,
       default: true
     },
-    isShowedProp: {
-      type: Boolean,
-      default: true
-    },
     options: {
       type: Object,
       default: () => {}
@@ -39,8 +35,7 @@ export default {
   },
   data() {
     return {
-      isLoaded: this.isLoadedProp,
-      isShowed: this.isShowedProp
+      isLoaded: this.isLoadedProp
     }
   },
   mounted() {
