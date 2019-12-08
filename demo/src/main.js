@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
-import LazyloadMainComponent from 'lazy-load-component'
+import VueLazyComponent from 'lazy-load-component'
 
-console.log(LazyloadMainComponent) // eslint-disable-line
+console.log(VueLazyComponent) // eslint-disable-line
 console.log(Vue.prototype) //eslint-disable-line
 
-Vue.use(LazyloadMainComponent)
+Vue.use(VueLazyComponent)
 
 new Vue({
   el: '#app',

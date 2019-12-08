@@ -2,13 +2,27 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <lazy-load-component :options="options" :is-loaded-prop="false">
+    <vue-lazy-component :options="options" :is-loaded-prop="false">
       <template v-slot:loader>
         blah blah loader...
       </template>
       testing
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
-    </lazy-load-component>
+      <img src="https://picsum.photos/200/300"/>
+    </vue-lazy-component>
+    <vue-lazy-component :options="options" :is-loaded-prop="false">
+      <template v-slot:loader>
+        blah blah loader...
+      </template>
+      testing2
+      <img src="https://picsum.photos/200/300"/>
+    </vue-lazy-component>
+    <vue-lazy-component :options="options" :is-loaded-prop="false">
+      <template v-slot:loader>
+        blah blah loader...
+      </template>
+      testing3
+      <img src="https://picsum.photos/200/300"/>
+    </vue-lazy-component>
   </div>
 </template>
 
