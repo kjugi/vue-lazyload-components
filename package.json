@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "webpack --watch --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js && cp ./dist/index.js ./demo/node_modules/lazy-load-component/index.js"
+    "build": "webpack --config webpack.prod.js && cp ./dist/index.js ./demo/src/assets/vue-lazy-component.js"
   },
   "dependencies": {
     "@babel/core": "^7.7.2",
