@@ -10,7 +10,8 @@
     "node": ">=12.13"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js && cp ./dist/index.js ./demo/node_modules/lazy-load-component/index.js"
+    "dev": "webpack --watch --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js && cp ./dist/index.js ./demo/node_modules/lazy-load-component/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.7.2",
@@ -23,7 +24,8 @@
     "vue": "^2.6.10",
     "vue-loader": "^15.7.2",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.41.2"
+    "webpack": "^4.41.2",
+    "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
     "webpack-cli": "^3.3.10"
