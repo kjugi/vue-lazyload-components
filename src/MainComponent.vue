@@ -16,7 +16,6 @@
 <script>
 import { initIntersectionObserver } from './functions.js'
 
-// TODO: make component hidden on start (isLoaded and isShowed) b/c need to init intersectionObserver
 export default {
   name: 'LazyLoadComponent',
   props: {
@@ -26,7 +25,7 @@ export default {
     },
     isLoadedProp: {
       type: Boolean,
-      default: true
+      default: false
     },
     options: {
       type: Object,

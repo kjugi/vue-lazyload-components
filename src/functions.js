@@ -52,7 +52,9 @@ export function initIntersectionObserver(Vue, options) {
 function handleIntersection(Vue, entries, isDisable, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log('this is showed', entry) //eslint-disable-line
+      if (!Vue.isLoaded) {
+        Vue.isLoaded = true
+      }
 
       if (isDisable) {
         observer.unobserve(Vue.$el)
