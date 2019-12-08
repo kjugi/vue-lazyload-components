@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     initIntersectionObserver(
-      this.$el,
+      this,
       this.options || {}
     )
   }

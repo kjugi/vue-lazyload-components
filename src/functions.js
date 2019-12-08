@@ -1,6 +1,6 @@
 /* globals window, IntersectionObserver */
 
-export function initIntersectionObserver(el, options) {
+export function initIntersectionObserver(Vue, options) {
   const optionKeys = Object.keys(options)
   let sourceOfTruth = {
     // null observes whole document's viewport
@@ -28,32 +28,34 @@ export function initIntersectionObserver(el, options) {
     if (window && window.requestIdleCallback) {
       window.requestIdleCallback(() => {
         handleIntersection(
+          Vue,
           entries,
-          (isIntersectionsDisabled) ? el : false,
+          isIntersectionsDisabled,
           observer
         )
       })
     }
     else {
       handleIntersection(
+        Vue,
         entries,
-        (isIntersectionsDisabled) ? el : false,
+        isIntersectionsDisabled,
         observer
       )
     }
   }, sourceOfTruth)
 
   // There we have pointer to our observable element
-  observer.observe(el)
+  observer.observe(Vue.$el)
 }
 
-function handleIntersection(entries, element, observer) {
+function handleIntersection(Vue, entries, isDisable, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       console.log('this is showed', entry) //eslint-disable-line
 
-      if (element) {
-        observer.unobserve(element)
+      if (isDisable) {
+        observer.unobserve(Vue.$el)
       }
     }
   })
