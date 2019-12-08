@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    library: 'LazyloadMainComponent',
+    library: 'VueLazyComponent',
     libraryExport: 'default',
     libraryTarget: 'umd'
   },

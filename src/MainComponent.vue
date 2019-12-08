@@ -17,7 +17,7 @@
 import { initIntersectionObserver } from './functions.js'
 
 export default {
-  name: 'LazyLoadComponent',
+  name: 'VueLazyComponent',
   props: {
     mainTag: {
       type: String,
