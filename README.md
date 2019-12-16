@@ -1,10 +1,8 @@
 # vue-lazyload-components
 
 TODO \ MVP:
-- Ogarnac lintery i importowanie libki w demo
 - Dodać prawdziwe demo w repo
-- Posprzatac w repo i zakutalizowac sciprts w package.json
-- Wygenerowac produkcyjny skrypt + update w demo
+- Emit event when isLoadedProp set to true and component is visible, then emit event viewed for content
 - Dodać wsparcie dla długich komponentów
 - Dodac unit testy
 - Wyniesc repo na github z jakims README.md
