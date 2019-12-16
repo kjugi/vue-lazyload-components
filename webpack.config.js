@@ -13,7 +13,8 @@ module.exports = {
     filename: 'index.js',
     library: 'VueLazyComponent',
     libraryExport: 'default',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    // globalObject: 'this'
   },
   plugins: [
     new VueLoaderPlugin()
