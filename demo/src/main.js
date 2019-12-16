@@ -1,6 +1,8 @@
+/* globals VueLazyComponent */
+
 import Vue from 'vue'
 import App from './App.vue'
-import VueLazyComponent from './assets/vue-lazy-component.js'
+import './assets/vue-lazy-component.js'
 
 Vue.use(VueLazyComponent)
 
