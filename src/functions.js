@@ -2,6 +2,7 @@
 
 export function initIntersectionObserver(Vue, options) {
   const optionKeys = Object.keys(options)
+  // TODO: rebuild how to manage with options
   let sourceOfTruth = {
     // null observes whole document's viewport
     root: null,
@@ -12,6 +13,9 @@ export function initIntersectionObserver(Vue, options) {
   let isIntersectionsDisabled = (optionKeys.find(item => item === 'disableIntersection'))
     ? options.disableIntersection
     : true
+  const eventName = (optionKeys.find(item => item === 'eventName'))
+  ? options.eventName
+  : 'custom-lazy-component'
 
   // Merging custom variables with default
   sourceOfTruth = Object.assign(
@@ -31,6 +35,7 @@ export function initIntersectionObserver(Vue, options) {
           Vue,
           entries,
           isIntersectionsDisabled,
+          eventName,
           observer
         )
       })
@@ -40,6 +45,7 @@ export function initIntersectionObserver(Vue, options) {
         Vue,
         entries,
         isIntersectionsDisabled,
+        eventName,
         observer
       )
     }
@@ -49,9 +55,12 @@ export function initIntersectionObserver(Vue, options) {
   observer.observe(Vue.$el)
 }
 
-function handleIntersection(Vue, entries, isDisable, observer) {
+function handleIntersection(Vue, entries, isDisable, event, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
+      // TODO: Add support to (update:variable, value) syntax
+      Vue.$emit(event)
+
       if (!Vue.isLoaded) {
         Vue.isLoaded = true
       }
