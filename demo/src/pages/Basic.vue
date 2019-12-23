@@ -1,42 +1,12 @@
 <template>
   <div>
     <vue-lazy-component
-      :options="options"
-      :is-loaded-prop="false"
+      v-for="index in itemsCount"
+      :key="index"
     >
-      <template v-slot:loader>
-        <div class="loader">
-          blah blah loader...
-        </div>
-      </template>
+      <img src="https://source.unsplash.com/random/600x480"/>
 
-      <img src="https://source.unsplash.com/random"/>
-    </vue-lazy-component>
-
-    <vue-lazy-component
-      :options="options"
-      :is-loaded-prop="false"
-    >
-      <template v-slot:loader>
-        <div class="loader">
-          blah blah loader...
-        </div>
-      </template>
-
-      <img src="https://source.unsplash.com/random"/>
-    </vue-lazy-component>
-
-    <vue-lazy-component
-      :options="options"
-      :is-loaded-prop="false"
-    >
-      <template v-slot:loader>
-        <div class="loader">
-          blah blah loader...
-        </div>
-      </template>
-
-      <img src="https://source.unsplash.com/random"/>
+      {{ getRandomInt(0, index + 10) }}
     </vue-lazy-component>
   </div>
 </template>
@@ -45,22 +15,37 @@
 export default {
   data() {
     return {
-      options: {
-        disableIntersection: true
-      }
+      itemsCount: 10
+    }
+  },
+  methods: {
+    getRandomInt(min, max) {
+      min = Math.ceil(min)
+      max = Math.floor(max)
+
+      return Math.floor(Math.random() * (max - min + 1)) + min
     }
   }
 }
 </script>
 
 <style scoped>
+div > section {
+  margin-bottom: 200px;
+  text-align: center;
+}
+
 img {
+  display: block;
   max-width: 100%;
+  margin: auto;
 }
 
 .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 300px;
   width: 100%;
-  text-align: center;
 }
 </style>
