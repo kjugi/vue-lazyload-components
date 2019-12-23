@@ -12,7 +12,9 @@
       </li>
 
       <li>
-        Example with never disabling intersection
+        <router-link to="/intersection-always-on">
+          Example with never disabling intersection
+        </router-link>
       </li>
 
       <li>

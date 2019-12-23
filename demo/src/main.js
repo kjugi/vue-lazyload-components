@@ -6,6 +6,7 @@ import MainApp from './App.vue'
 
 // Routes
 import Basic from './pages/Basic.vue'
+import IntersectionAlwaysOn from './pages/IntersectionAlwaysOn.vue'
 
 import './assets/vue-lazy-component.js'
 
@@ -16,6 +17,10 @@ const routes = [
   {
     path: '/basic',
     component: Basic
+  },
+  {
+    path: '/intersection-always-on',
+    component: IntersectionAlwaysOn
   }
 ]
 
