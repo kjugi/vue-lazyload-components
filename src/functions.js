@@ -5,7 +5,7 @@ export function initIntersectionObserver(Vue, options) {
   let sourceOfTruth = {
     // null observes whole document's viewport
     root: null,
-    margin: '0px',
+    rootMargin: '0px',
     // TODO: add support for threshold advanced list
     threshold: 1.0
   }
