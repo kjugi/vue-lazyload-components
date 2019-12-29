@@ -6,6 +6,7 @@
 
     <vue-lazy-component
       :options="options"
+      :isLoadedProp="false"
       v-on:our-event="showTheLog"
     >
       <template v-slot:loader>
