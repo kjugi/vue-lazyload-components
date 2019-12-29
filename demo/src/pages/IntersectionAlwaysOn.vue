@@ -3,6 +3,7 @@
     <p class="info">
       Scroll page up and down few times and than check the logs
     </p>
+
     <vue-lazy-component
       :options="options"
       v-on:custom-lazy-component="showTheLog"
