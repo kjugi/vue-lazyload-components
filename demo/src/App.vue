@@ -18,7 +18,9 @@
       </li>
 
       <li>
-        Example with infinite images
+        <router-link to="/infinite-images">
+          Example with infinite images
+        </router-link>
       </li>
 
       <li>

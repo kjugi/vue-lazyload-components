@@ -7,6 +7,7 @@ import MainApp from './App.vue'
 // Routes
 import Basic from './pages/Basic.vue'
 import IntersectionAlwaysOn from './pages/IntersectionAlwaysOn.vue'
+import InfiniteImages from './pages/InfiniteImages.vue'
 
 import './assets/vue-lazy-component.js'
 
@@ -21,6 +22,11 @@ const routes = [
   {
     path: '/intersection-always-on',
     component: IntersectionAlwaysOn
+  },
+  {
+    path: '/infinite-images',
+    component: InfiniteImages
+  },
   }
 ]
 
