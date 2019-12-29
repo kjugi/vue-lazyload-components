@@ -24,7 +24,9 @@
       </li>
 
       <li>
-        Custom intersection options
+        <router-link to="/custom-options">
+          Custom intersection options
+        </router-link>
       </li>
 
       <li>

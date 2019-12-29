@@ -8,6 +8,7 @@ import MainApp from './App.vue'
 import Basic from './pages/Basic.vue'
 import IntersectionAlwaysOn from './pages/IntersectionAlwaysOn.vue'
 import InfiniteImages from './pages/InfiniteImages.vue'
+import CustomOptions from './pages/CustomOptions.vue'
 
 import './assets/vue-lazy-component.js'
 
@@ -27,6 +28,9 @@ const routes = [
     path: '/infinite-images',
     component: InfiniteImages
   },
+  {
+    path: '/custom-options',
+    component: CustomOptions
   }
 ]
 
