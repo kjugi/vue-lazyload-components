@@ -6,6 +6,7 @@
 
     <vue-lazy-component
       :options="options"
+      :isLoadedProp="false"
       v-on:our-event="showTheLog"
     >
       <template v-slot:loader>
@@ -58,6 +59,7 @@ section {
   align-items: center;
   width: 100%;
   height: 600px;
+  max-height: 90vh;
 }
 
 img {
