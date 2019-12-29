@@ -1,21 +1,33 @@
 {
   "name": "vue-lazyload-components",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "IE 11"
   ],
+  "engines": {
+    "node": ">=12.13"
+  },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "dev": "webpack --watch --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js && cp ./dist/index.js ./demo/src/assets/vue-lazy-component.js"
   },
   "dependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "core-js": "3",
     "eslint": "^6.6.0",
+    "eslint-loader": "^3.0.2",
     "vue": "^2.6.10",
-    "webpack": "^4.41.2"
+    "vue-loader": "^15.7.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-merge": "^4.2.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
   }
 }
