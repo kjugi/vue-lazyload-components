@@ -41,12 +41,4 @@ img {
   height: 480px;
   margin: auto;
 }
-
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  width: 100%;
-}
 </style>

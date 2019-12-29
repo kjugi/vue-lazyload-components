@@ -58,6 +58,7 @@ section {
   align-items: center;
   width: 100%;
   height: 600px;
+  max-height: 90vh;
 }
 
 img {
