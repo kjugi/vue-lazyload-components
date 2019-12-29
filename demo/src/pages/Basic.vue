@@ -38,6 +38,7 @@ div > section {
 img {
   display: block;
   max-width: 100%;
+  height: 480px;
   margin: auto;
 }
 
