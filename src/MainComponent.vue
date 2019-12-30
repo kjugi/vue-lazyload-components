@@ -1,6 +1,6 @@
 <template>
   <component :is="mainTag">
-    <template v-if="!isLoaded">
+    <template v-if="!isLoadedData">
       <slot name="loader">
         <span>
           Loading...
@@ -23,7 +23,7 @@ export default {
       type: String,
       default: 'section'
     },
-    isLoadedProp: {
+    isLoaded: {
       type: Boolean,
       default: false
     },
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      isLoaded: this.isLoadedProp
+      isLoadedData: this.isLoaded
     }
   },
   mounted() {

@@ -58,11 +58,10 @@ export function initIntersectionObserver(Vue, options) {
 function handleIntersection(Vue, entries, isDisable, event, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // TODO: Add support to (update:variable, value) syntax
       Vue.$emit(event)
 
-      if (!Vue.isLoaded) {
-        Vue.isLoaded = true
+      if (!Vue.isLoadedData) {
+        Vue.isLoadedData = true
       }
 
       if (isDisable) {
