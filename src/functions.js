@@ -61,8 +61,8 @@ function handleIntersection(Vue, entries, isDisable, event, observer) {
       // TODO: Add support to (update:variable, value) syntax
       Vue.$emit(event)
 
-      if (!Vue.isLoaded) {
-        Vue.isLoaded = true
+      if (!Vue.isLoadedData) {
+        Vue.isLoadedData = true
       }
 
       if (isDisable) {
