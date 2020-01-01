@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import MainComponent from '@/MainComponent.vue'
+import VueLazyComponent from '@/MainComponent.vue'
 
 describe('Testing structure', () => {
   beforeEach((() => {
@@ -21,17 +21,17 @@ describe('Testing structure', () => {
   }))
 
   it('Renders Vue instance', () => {
-    expect(mount(MainComponent).isVueInstance()).toBeTruthy()
+    expect(mount(VueLazyComponent).isVueInstance()).toBeTruthy()
   })
 
   it('Should mount component in new Vue instance and have default loading content', () => {
     const wrapper = mount({
       components: {
-        MainComponent
+        VueLazyComponent
       },
       template: `
         <div>
-          <main-component></main-component>
+          <vue-lazy-component></vue-lazy-component>
         </div>
       `
     })
