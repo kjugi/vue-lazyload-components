@@ -4,8 +4,8 @@ import VueLazyComponent from '@/MainComponent.vue'
 describe('Testing base functions', () => {
   beforeEach((() => {
     global.IntersectionObserver = class IntersectionObserver {
-      constructor(el, options) {
-        this.el = el
+      constructor(status, options) {
+        this.status = status
         this.options = options
         this.observables = []
       }
