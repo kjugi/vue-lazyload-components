@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import VueLazyComponent from '@/MainComponent.vue'
 
-describe('Testing structure', () => {
+describe('Testing base functions', () => {
   beforeEach((() => {
     global.IntersectionObserver = class IntersectionObserver {
       constructor(el, options) {
