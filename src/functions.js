@@ -37,6 +37,8 @@ export function initIntersectionObserver(Vue, options) {
 
   // There we have pointer to our observable element
   observer.observe(Vue.$el)
+
+  return observer
 }
 
 function setConfig(options) {
