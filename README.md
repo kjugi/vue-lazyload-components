@@ -53,6 +53,9 @@ const config = {
 ## Demo
 Online demo is not available but you can fork/download this repo and run locally a `yarn serve` from demo directory. 
 
+## Testing
+You can run test cases from test/unit by hitting `yarn test` in main directory.
+
 ## Alternatives:
 - [Vue-intersect](https://github.com/heavyy/vue-intersect)
 - [Vue-lazyload](https://github.com/hilongjw/vue-lazyload)
