@@ -106,27 +106,58 @@ describe('Testing base functions', () => {
     wrapper.vm._vnode.children[0].componentInstance.observer.status([{
       isIntersecting: true
     }])
-
     expect(intersect).toHaveBeenCalledTimes(1)
   })
 
-  // it('Should emit event every time when component is intersected', async () => {
+  it('Should take eventName option defined by user', () => {
+    const intersect = jest.fn()
+    const wrapper = mount({
+      components: {
+        VueLazyComponent
+      },
+      data() {
+        return {
+          customOptions: {
+            eventName: 'our-event'
+          }
+        }
+      },
+      template: `
+        <div>
+          <vue-lazy-component
+            :options="customOptions"
+            :is-loaded="true"
+            v-on:our-event="eventCatcher"
+          >
+            Testing slot content
+          </vue-lazy-component>
+        </div>
+      `,
+      methods: {
+        eventCatcher: intersect
+      }
+    })
 
-  // })
+    wrapper.vm._vnode.children[0].componentInstance.observer.status([{
+      isIntersecting: true
+    }])
+    expect(intersect).toHaveBeenCalledTimes(1)
+  })
 
-  // it('Should take eventName option defined by user', () => {
+  it('Should be possible to set custom options', () => {
+    const wrapper = mount(VueLazyComponent, {
+      propsData: {
+        options: {
+          root: true,
+          rootMargin: '10px',
+          threshold: 0.5
+        }
+      }
+    })
 
-  // })
-
-  // it('Should be possible to set custom root property', () => {
-
-  // })
-
-  // it('Should be possible to set custom rootMargin property', () => {
-
-  // })
-
-  // it('Should be possible to set custom threshold property', () => {
-
-  // })
+    expect(wrapper.props().options).toBeDefined()
+    expect(wrapper.props().options.root).toBe(true)
+    expect(wrapper.props().options.rootMargin).toBe('10px')
+    expect(wrapper.props().options.threshold).toBe(0.5)
+  })
 })
