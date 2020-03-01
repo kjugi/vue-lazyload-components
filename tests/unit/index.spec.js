@@ -64,7 +64,7 @@ describe('Testing base functions', () => {
 </div>`)
   })
 
-  it('Content should be visible on render', async () => {
+  it('Content should be visible on render', () => {
     const wrapper = mount({
       components: {
         VueLazyComponent
@@ -82,7 +82,7 @@ describe('Testing base functions', () => {
     expect(wrapper.vm.$el.textContent).toBe('Testing slot content')
   })
 
-  it('Should emit event when component is intersected', async () => {
+  it('Should emit event when component is intersected', () => {
     const intersect = jest.fn()
     const wrapper = mount({
       components: {
