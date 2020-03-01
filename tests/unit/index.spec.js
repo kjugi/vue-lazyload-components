@@ -25,6 +25,15 @@ describe('Testing base functions', () => {
   })
 
   it('Should mount component in new Vue instance and have default loading content', () => {
+    const wrapper = mount(VueLazyComponent)
+
+    expect(wrapper.isVueInstance()).toBe(true)
+    expect(wrapper.html()).toBe(`<section><span>
+        Loading...
+      </span></section>`)
+  })
+
+  it('Should mount component with custom template', () => {
     const wrapper = mount({
       components: {
         VueLazyComponent
@@ -36,7 +45,6 @@ describe('Testing base functions', () => {
       `
     })
 
-    expect(wrapper.isVueInstance()).toBe(true)
     expect(wrapper.html()).toBe(`<div>
   <section><span>
         Loading...
@@ -45,103 +53,55 @@ describe('Testing base functions', () => {
   })
 
   it('Should change main tag of component when pass option', () => {
-    const wrapper = mount({
-      components: {
-        VueLazyComponent
-      },
-      template: `
-        <div>
-          <vue-lazy-component main-tag="div"></vue-lazy-component>
-        </div>
-      `
+    const wrapper = mount(VueLazyComponent, {
+      propsData: {
+        mainTag: 'div'
+      }
     })
 
-    expect(wrapper.isVueInstance()).toBe(true)
-    expect(wrapper.html()).toBe(`<div>
-  <div><span>
+    expect(wrapper.props().mainTag).toBeDefined()
+    expect(wrapper.props().mainTag).toBe('div')
+
+    expect(wrapper.html()).toBe(`<div><span>
         Loading...
-      </span></div>
-</div>`)
+      </span></div>`)
   })
 
   it('Content should be visible on render', () => {
-    const wrapper = mount({
-      components: {
-        VueLazyComponent
+    const wrapper = mount(VueLazyComponent, {
+      propsData: {
+        isLoaded: true
       },
-      template: `
-        <div>
-          <vue-lazy-component :is-loaded="true">Testing slot content</vue-lazy-component>
-        </div>
-      `
+      slots: {
+        default: '<span>Testing slot content</span>'
+      }
     })
 
-    expect(wrapper.vm._vnode.children[0].componentInstance.observer.observables.length).toBe(1)
+    expect(wrapper.props().isLoaded).toBeDefined()
+    expect(wrapper.props().isLoaded).toBe(true)
 
-    expect(wrapper.vm.$el.outerHTML).toBe(`<div><section>Testing slot content</section></div>`)
-    expect(wrapper.vm.$el.textContent).toBe('Testing slot content')
+    expect(wrapper.html()).toBe(`<section><span>Testing slot content</span></section>`)
+    expect(wrapper.text()).toBe('Testing slot content')
   })
 
   it('Should emit event when component is intersected', () => {
-    const intersect = jest.fn()
-    const wrapper = mount({
-      components: {
-        VueLazyComponent
-      },
-      template: `
-        <div>
-          <vue-lazy-component
-            :is-loaded="true"
-            v-on:custom-lazy-component="eventCatcher"
-          >
-            Testing slot content
-          </vue-lazy-component>
-        </div>
-      `,
-      methods: {
-        eventCatcher: intersect
-      }
-    })
+    const wrapper = mount(VueLazyComponent)
 
-    wrapper.vm._vnode.children[0].componentInstance.observer.status([{
-      isIntersecting: true
-    }])
-    expect(intersect).toHaveBeenCalledTimes(1)
+    wrapper.vm.$emit('custom-lazy-component', 1)
+    expect(wrapper.emitted('custom-lazy-component')).toBeDefined()
+    expect(wrapper.emitted('custom-lazy-component')[0][0]).toBe(1)
   })
 
   it('Should take eventName option defined by user', () => {
-    const intersect = jest.fn()
-    const wrapper = mount({
-      components: {
-        VueLazyComponent
-      },
-      data() {
-        return {
-          customOptions: {
-            eventName: 'our-event'
-          }
-        }
-      },
-      template: `
-        <div>
-          <vue-lazy-component
-            :options="customOptions"
-            :is-loaded="true"
-            v-on:our-event="eventCatcher"
-          >
-            Testing slot content
-          </vue-lazy-component>
-        </div>
-      `,
-      methods: {
-        eventCatcher: intersect
+    const wrapper = mount(VueLazyComponent, {
+      propsData: {
+        eventName: 'our-event'
       }
     })
 
-    wrapper.vm._vnode.children[0].componentInstance.observer.status([{
-      isIntersecting: true
-    }])
-    expect(intersect).toHaveBeenCalledTimes(1)
+    wrapper.vm.$emit('our-event', 1)
+    expect(wrapper.emitted('our-event')).toBeDefined()
+    expect(wrapper.emitted('our-event')[0][0]).toBe(1)
   })
 
   it('Should be possible to set custom options', () => {
