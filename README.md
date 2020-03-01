@@ -7,7 +7,6 @@ Tested this code only on libs and engines versions from `package.json` file.
 Release tags will depend (if there will be any) on vue release version. When Vue 3.x will be released I will adjust code and release here 3.x version. Vue 1.0 isn't supported.
 
 ## TODO:
-- [ ] Cover all scenarios in unit tests or rebuild them
 - [ ] Add support to lazy loading images
 
 ## Basic example
