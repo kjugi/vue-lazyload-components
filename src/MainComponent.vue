@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted() {
-    initIntersectionObserver(
+    this.observer = initIntersectionObserver(
       this,
       this.options || {}
     )
